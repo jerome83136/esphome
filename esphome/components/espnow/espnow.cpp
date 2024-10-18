@@ -123,6 +123,7 @@ void ESPNowComponent::setup() {
   for (auto &address : this->peers_) {
     ESP_LOGV(TAG, "Add peer '%012llx'.", address);
     add_peer(address);
+    ESP_LOGV(TAG, "Peers number", getTotalPeerCount());
   }
 
   this->send_queue_ = xQueueCreate(SEND_BUFFER_SIZE, sizeof(ESPNowPacket));
